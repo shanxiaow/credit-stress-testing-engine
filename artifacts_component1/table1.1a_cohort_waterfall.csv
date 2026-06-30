@@ -1,0 +1,7 @@
+stage,n_loans,default_24m_rate
+Raw loans loaded (selected columns),2260701,
+(-) Insufficient 24m follow-up,-938854,
+(-) Ambiguous loan status,-10102,
+(-) Missing date/status or unresolved timing,-1187,
+= Eligible modeling sample (df_model),1310558,0.1279
+Stratified working sample (sample),300000,0.1279

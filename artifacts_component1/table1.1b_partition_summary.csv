@@ -1,0 +1,4 @@
+partition,vintage_rule,n_loans,default_24m_rate,issue_d_min,issue_d_max
+train,issue_d < 2015,106544,0.1132,2007-06-30,2014-12-31
+valid,2015 <= issue_d < 2016,95766,0.1345,2015-01-31,2015-12-31
+oot,issue_d >= 2016,97690,0.1375,2016-01-31,2016-12-31

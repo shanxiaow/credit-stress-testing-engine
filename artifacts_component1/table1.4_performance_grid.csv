@@ -1,0 +1,16 @@
+model,metric,train,valid,oot
+base,auc,0.6802,0.709,0.7068
+base,gini,0.3604,0.418,0.4136
+base,ks,0.2609,0.3072,0.3036
+base,brier,0.0961,0.1096,0.1114
+base,log_loss,0.3324,0.3667,0.3717
+sens1_no_int_rate,auc,0.6724,0.6957,0.6939
+sens1_no_int_rate,gini,0.3448,0.3914,0.3877
+sens1_no_int_rate,ks,0.2471,0.2875,0.283
+sens1_no_int_rate,brier,0.0964,0.1101,0.1123
+sens1_no_int_rate,log_loss,0.3342,0.369,0.3752
+sens2_with_subgrade,auc,0.6819,0.7089,0.7063
+sens2_with_subgrade,gini,0.3638,0.4177,0.4125
+sens2_with_subgrade,ks,0.2634,0.3055,0.3034
+sens2_with_subgrade,brier,0.0959,0.1092,0.1116
+sens2_with_subgrade,log_loss,0.3319,0.3649,0.3716

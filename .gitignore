@@ -1,0 +1,24 @@
+
+# Ignore dataset (large file)
+accepted_2007_to_2018Q4.csv
+
+# Generated intermediates (regenerate via 01_pd_model.ipynb)
+scored_loan_level_pd.parquet
+scored_loan_level_pd.csv
+
+
+# Ignore virtual environment
+# .venv/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore OS junk
+.DS_Store
+
+# Ignore VS Code settings (optional)
+.vscode/

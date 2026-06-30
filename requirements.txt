@@ -1,0 +1,18 @@
+# Core data/scientific stack
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+
+# Modeling
+scikit-learn>=1.2
+statsmodels>=0.14
+
+# Plotting
+matplotlib>=3.7
+
+# Parquet support for scored_loan_level_pd.parquet
+pyarrow>=14.0
+
+# Notebook execution
+jupyter>=1.0
+ipykernel>=6.0

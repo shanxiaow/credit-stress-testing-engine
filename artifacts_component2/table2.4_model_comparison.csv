@@ -1,0 +1,11 @@
+sample,target,model_id,nobs,k_predictors,r2,adj_r2,aic,bic,dep_var,x_vars
+baseline_full_age_mix,calibrated,M1_unemp,31,1,0.3281,0.3049,-43.697,-40.829,log_multiplier_calibrated,unrate_diff_l1
+baseline_full_age_mix,calibrated,M2_unemp_spread,31,2,0.3321,0.2844,-41.8844,-37.5824,log_multiplier_calibrated,"unrate_diff_l1, baa10y_spread_diff_l1"
+baseline_full_age_mix,calibrated,M3_unemp_gdp,31,2,0.3286,0.2807,-41.7235,-37.4215,log_multiplier_calibrated,"unrate_diff_l1, real_gdp_growth_yoy_l1"
+baseline_full_age_mix,calibrated,M4_unemp_gdp_spread,31,3,0.3376,0.264,-40.1415,-34.4056,log_multiplier_calibrated,"unrate_diff_l1, real_gdp_growth_yoy_l1, baa10y_spread_diff_l1"
+baseline_full_age_mix,calibrated,M5_unemp_time_trend,31,2,0.4149,0.3731,-45.9879,-41.6859,log_multiplier_calibrated,"unrate_diff_l1, time_trend"
+baseline_full_age_mix,raw,M1_unemp,31,1,0.3177,0.2941,-44.2466,-41.3786,log_multiplier_raw,unrate_diff_l1
+baseline_full_age_mix,raw,M2_unemp_spread,31,2,0.3226,0.2743,-42.4739,-38.1719,log_multiplier_raw,"unrate_diff_l1, baa10y_spread_diff_l1"
+baseline_full_age_mix,raw,M3_unemp_gdp,31,2,0.3181,0.2694,-42.2652,-37.9632,log_multiplier_raw,"unrate_diff_l1, real_gdp_growth_yoy_l1"
+baseline_full_age_mix,raw,M4_unemp_gdp_spread,31,3,0.3282,0.2536,-40.73,-34.994,log_multiplier_raw,"unrate_diff_l1, real_gdp_growth_yoy_l1, baa10y_spread_diff_l1"
+baseline_full_age_mix,raw,M5_unemp_time_trend,31,2,0.3984,0.3555,-46.1521,-41.8501,log_multiplier_raw,"unrate_diff_l1, time_trend"

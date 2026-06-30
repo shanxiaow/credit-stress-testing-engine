@@ -1,0 +1,21 @@
+sample,target,model_id,nobs,k_predictors,r2,adj_r2,aic,bic,dep_var,x_vars
+baseline_full_age_mix,calibrated,M1_unemp,31,1,0.3280587858589291,0.30488839916440935,-43.69700618570481,-40.82903177673452,log_multiplier_calibrated,unrate_diff_l1
+robust_full_47q,calibrated,M1_unemp,45,1,0.0733299966085571,0.05177953141340719,9.305745634872778,12.919070614413418,log_multiplier_calibrated,unrate_diff_l1
+baseline_full_age_mix,calibrated,M2_unemp_spread,31,2,0.332107576329588,0.2844009746388443,-41.884362112732575,-37.582400499277135,log_multiplier_calibrated,"unrate_diff_l1, baa10y_spread_diff_l1"
+robust_full_47q,calibrated,M2_unemp_spread,45,2,0.08307108816199826,0.03940780664590293,10.830204891589887,16.250192360900847,log_multiplier_calibrated,"unrate_diff_l1, baa10y_spread_diff_l1"
+baseline_full_age_mix,calibrated,M3_unemp_gdp,31,2,0.3286329650507973,0.28067817684013996,-41.72350726026305,-37.42154564680761,log_multiplier_calibrated,"unrate_diff_l1, real_gdp_growth_yoy_l1"
+robust_full_47q,calibrated,M3_unemp_gdp,45,2,0.08142719421178124,0.03768563203138986,10.910809825737687,16.330797295048647,log_multiplier_calibrated,"unrate_diff_l1, real_gdp_growth_yoy_l1"
+baseline_full_age_mix,calibrated,M4_unemp_gdp_spread,31,3,0.3376254971800521,0.2640283302000578,-40.14153835911425,-34.40558954117367,log_multiplier_calibrated,"unrate_diff_l1, real_gdp_growth_yoy_l1, baa10y_spread_diff_l1"
+robust_full_47q,calibrated,M4_unemp_gdp_spread,45,3,0.08644782221778335,0.019602540916645483,12.664179461730782,19.89082942081206,log_multiplier_calibrated,"unrate_diff_l1, real_gdp_growth_yoy_l1, baa10y_spread_diff_l1"
+baseline_full_age_mix,calibrated,M5_unemp_time_trend,31,2,0.4149164393545174,0.37312475645126864,-45.98790782765202,-41.68594621419658,log_multiplier_calibrated,"unrate_diff_l1, time_trend"
+robust_full_47q,calibrated,M5_unemp_time_trend,45,2,0.17944614529671876,0.14037215221561006,5.832936806184037,11.252924275494996,log_multiplier_calibrated,"unrate_diff_l1, time_trend"
+baseline_full_age_mix,raw,M1_unemp,31,1,0.3176586590748717,0.29412964731883273,-44.24658228765095,-41.37860787868066,log_multiplier_raw,unrate_diff_l1
+robust_full_47q,raw,M1_unemp,45,1,0.06419699154540592,0.042434130883671095,9.915213850142365,13.528538829683004,log_multiplier_raw,unrate_diff_l1
+baseline_full_age_mix,raw,M2_unemp_spread,31,2,0.3226440660220844,0.27426149930937616,-42.473909812361754,-38.171948198906314,log_multiplier_raw,"unrate_diff_l1, baa10y_spread_diff_l1"
+robust_full_47q,raw,M2_unemp_spread,45,2,0.07533478851403497,0.03130311177660805,11.37641738392719,16.79640485323815,log_multiplier_raw,"unrate_diff_l1, baa10y_spread_diff_l1"
+baseline_full_age_mix,raw,M3_unemp_gdp,31,2,0.31806802649104793,0.2693585998118371,-42.265186170242615,-37.963224556787175,log_multiplier_raw,"unrate_diff_l1, real_gdp_growth_yoy_l1"
+robust_full_47q,raw,M3_unemp_gdp,45,2,0.07371040861667999,0.02960138045556948,11.455400527149564,16.875387996460525,log_multiplier_raw,"unrate_diff_l1, real_gdp_growth_yoy_l1"
+baseline_full_age_mix,raw,M4_unemp_gdp_spread,31,3,0.3282160128563181,0.2535733476181311,-40.72997122044576,-34.99402240250518,log_multiplier_raw,"unrate_diff_l1, real_gdp_growth_yoy_l1, baa10y_spread_diff_l1"
+robust_full_47q,raw,M4_unemp_gdp_spread,45,3,0.07937337546822221,0.012010451721994553,13.179443984316407,20.406093943397686,log_multiplier_raw,"unrate_diff_l1, real_gdp_growth_yoy_l1, baa10y_spread_diff_l1"
+baseline_full_age_mix,raw,M5_unemp_time_trend,31,2,0.3984285363021417,0.355459146038009,-46.1521078335082,-41.85014622005276,log_multiplier_raw,"unrate_diff_l1, time_trend"
+robust_full_47q,raw,M5_unemp_time_trend,45,2,0.17163952335925248,0.1321937863763597,6.427167958553014,11.847155427863973,log_multiplier_raw,"unrate_diff_l1, time_trend"
