@@ -497,7 +497,7 @@ See also:
 <div style="margin-top: 30px;"></div>
 
 ### 24-months horizon
-The 24-month horizon is justified empirically by the fact that efaults concentrate in the first two years after origination: the hazard rises through the first year, peaks around quarters 3–4, and tapers thereafter, with the cumulative share of within-24-month defaults reaching essentially its full level by quarter 8. A fixed 24-month window therefore captures the bulk of the credit risk that materializes over a loan's life while ensuring every loan in the sample is observed over an identical, fully-matured horizon. This is what makes the outcome comparable across vintages and free of the survivorship/truncation bias that a terminal-status, variable-horizon definition introduces.
+The 24-month horizon is justified empirically by the fact that defaults concentrate in the first two years after origination: the hazard rises through the first year, peaks around quarters 3–4, and tapers thereafter, with the cumulative share of within-24-month defaults reaching essentially its full level by quarter 8. A fixed 24-month window therefore captures the bulk of the credit risk that materializes over a loan's life while ensuring every loan in the sample is observed over an identical, fully-matured horizon. This is what makes the outcome comparable across vintages and free of the survivorship/truncation bias that a terminal-status, variable-horizon definition introduces.
 
 See **Figure 1.4**. 
 ![Figure 1.4 — Empirical Timing of 24-month Defaults by Loan Age](artifacts_component1/fig1.4_default_timing_by_age.png)
