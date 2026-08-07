@@ -16,3 +16,7 @@ pyarrow>=14.0
 # Notebook execution
 jupyter>=1.0
 ipykernel>=6.0
+
+
+#AWS Connection
+boto3
