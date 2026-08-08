@@ -4,7 +4,7 @@
 
 This project builds an end-to-end stress-testing engine for unsecured consumer credit using LendingClub loan data. It estimates fixed-horizon loan-level probability of default, calibrates out-of-time predictions to observed portfolio default levels, links realized-vs-expected default experience to macroeconomic conditions, and transmits historical recession paths through a scenario engine to estimate stressed default and expected loss.
 
-**The project is model‑risk‑aware**: the focus extends beyond predictive modeling and the final loss estimate to include leakage control,out‑of‑time validation, calibration, stability testing, and the diagnostic process that corrected an earlier flawed lifetime‑PD design to arrive at the final fixed‑horizon framework.
+**The project is model‑risk‑aware**: the focus extends beyond predictive modeling and the final loss estimate to include leakage control, out‑of‑time validation, calibration, stability testing, and the diagnostic process that corrected an earlier flawed lifetime‑PD design to arrive at the final fixed‑horizon framework.
 
 
 ---
@@ -23,18 +23,37 @@ This project builds an end-to-end stress-testing engine for unsecured consumer c
 ---
 
 
+## Technology Stack
+
+**Modeling & analysis:** Python · pandas · NumPy · scikit-learn · statsmodels · matplotlib  
+**Cloud & deployment:** AWS EC2 · Amazon S3 · IAM · boto3 · Git/GitHub
+
+---
+
+## AWS Deployment
+
+Component 3 was refactored from the original notebook workflow into a reusable Python scenario engine and deployed on AWS. Prepared model inputs are stored in Amazon S3, the stress-testing computation runs on an Amazon EC2 Linux instance, and the resulting three CSV tables and four PNG figures are written back to S3.
+
+The EC2 instance accesses S3 through an IAM instance role rather than embedded credentials, with `boto3` handling S3 access from Python. The same scenario engine can also run locally. Components 1 and 2 remain the upstream modeling workflow that produces the scored loan-level PDs and macro-satellite coefficients consumed by Component 3.
+
+---
+
 ## Repository layout
 
-```
+```text
 ├── README.md                         this file
 ├── WRITEUP.md                        full technical report
-├── feature_selection.md                 details of feature selection process
+├── feature_selection.md              details of feature selection process
+├── requirements.txt                  Python dependencies
+├── main.py                           entry point for the refactored scenario engine
+├── src/
+│   └── scenario_engine.py            reusable Component 3 Python module with S3 integration
 ├── 01_pd_model.ipynb                 Component 1 — PD model
 ├── 02_macro_satellite.ipynb          Component 2 — macro satellite
-├── 03_scenario_engine.ipynb          Component 3 — scenario engine
-├── artifacts_component1/                PD tables & figures
-├── artifacts_component2/                satellite tables & figures
-├── artifacts_component3/                scenario tables & figures
+├── 03_scenario_engine.ipynb          Component 3 — original notebook workflow
+├── artifacts_component1/             PD tables & figures
+├── artifacts_component2/             satellite tables & figures
+├── artifacts_component3/             scenario tables & figures
 └── legacy/                           legacy version and diagnostics, including artifacts
     └── legacy_PD_satellite.ipynb
 ```
@@ -42,8 +61,10 @@ This project builds an end-to-end stress-testing engine for unsecured consumer c
 Each notebook writes its tables and figures to its own `artifacts_component*/` folder.
 
 The layer hand-off files passed between notebooks are generated within notebooks:
-- scored loan-level PD: scored_loan_level_pd.parquet, scored_loan_level_pd.csv
-- satellite coefficients: satellite_coefficients_baseline.csv
+- scored loan-level PD: `scored_loan_level_pd.parquet`, `scored_loan_level_pd.csv`
+- satellite coefficients: `satellite_coefficients_baseline.csv`
+
+For the AWS deployment, `scored_loan_level_pd.parquet` and `satellite_coefficients_baseline.csv` are stored in the S3 `inputs/` prefix and consumed by the refactored Component 3 Python module.
 
 
 ---
@@ -131,6 +152,8 @@ An earlier project design used a terminal-status, resolved-loans-only lifetime-P
 
 ## How to Run
 
+### Full modeling workflow
+
 1. Clone the repository.
 
 2. Create a Python environment and install the required packages:
@@ -139,8 +162,8 @@ An earlier project design used a terminal-status, resolved-loans-only lifetime-P
 pip install -r requirements.txt
 ```
 
-3. Raw data files are not committed to the repository because of size.
-Download the raw data [here](https://www.dropbox.com/scl/fi/k9gc2ny7ldzhcx4mt7gtc/accepted_2007_to_2018Q4.csv?rlkey=ox2c5xr2imxnlcgf13e4kix4r&st=qyf7ouqu&dl=0), then place the file in local directory.
+3. Raw data files are not committed to the repository because of size.  
+Download the raw data [here](https://www.dropbox.com/scl/fi/k9gc2ny7ldzhcx4mt7gtc/accepted_2007_to_2018Q4.csv?rlkey=ox2c5xr2imxnlcgf13e4kix4r&st=qyf7ouqu&dl=0), then place the file in the project directory.
 
 4. Run the notebooks in order:
 
@@ -152,6 +175,18 @@ Download the raw data [here](https://www.dropbox.com/scl/fi/k9gc2ny7ldzhcx4mt7gt
 
 The legacy notebook does not produce final results but documents the model-risk diagnosis that led to the final fixed-horizon design.
 
+### Refactored Component 3 scenario engine
+
+Component 3 can also be run as a standalone Python pipeline:
+
+```bash
+python main.py
+```
+
+The refactored engine attempts to load its two prepared inputs from Amazon S3 and writes the seven verified Component 3 outputs—three CSV tables and four PNG figures—to the local `artifacts_component3/` directory and to the configured S3 `outputs/` prefix.
+
+When run on EC2, S3 access is provided through the EC2 IAM instance role rather than embedded AWS credentials.
+
 ---
 
 ## Main Report
@@ -160,7 +195,7 @@ For the full technical narrative, see:
 
 [WRITEUP.md](WRITEUP.md)
 
-The writeup contains the complete model documentation: cohort construction, outcome definition, PD specification, validation, calibration, macro satellite construction, scenario methodology, results, limitations, and the legacy v3-to-v4 diagnostic journey.
+The writeup contains the complete model documentation: cohort construction, outcome definition, PD specification, validation, calibration, macro satellite construction, scenario methodology, results, limitations, and the legacy model diagnostic journey.
 
 ---
 

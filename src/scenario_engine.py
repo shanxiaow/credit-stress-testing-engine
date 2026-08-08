@@ -1,7 +1,8 @@
 """Component 3: macro scenario stress-testing engine.
 
-Refactored from 03_scenario_engine.ipynb so the component can be run as a
-standalone Python module (locally or later on AWS).
+Refactored from 03_scenario_engine.ipynb into a standalone Python module
+that can run locally or on AWS EC2, with model inputs and outputs stored
+in Amazon S3.
 """
 
 from pathlib import Path
@@ -22,12 +23,7 @@ DEFAULT_COEF_PATH = PROJECT_ROOT / "satellite_coefficients_baseline.csv"
 DEFAULT_ARTIFACT_DIR = PROJECT_ROOT / "artifacts_component3"
 
 # AWS/S3 configuration.
-# The bucket name can be overridden later with the environment variable
-# STRESS_TESTING_S3_BUCKET without changing the code.
-S3_BUCKET = os.getenv(
-    "STRESS_TESTING_S3_BUCKET",
-    "stress-testing-468241617471-us-east-2-an",
-)
+S3_BUCKET = "stress-testing-468241617471-us-east-2-an"
 S3_INPUT_PREFIX = "inputs"
 S3_OUTPUT_PREFIX = "outputs"
 
